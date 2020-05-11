@@ -24,8 +24,13 @@ COPY ./package/00/package.json ./package/00/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
+# nuxt/node layer 01
+COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+    yarn install --ignore-optional
+
 # COPY s6/etc/services.d /etc/services.d
 # COPY s6/etc/cont-init.d /etc/cont-init.d
+ENV PATH=$PATH:/node_modules/.bin
 ENTRYPOINT ["/init"]
-
-EXPOSE 8080
+EXPOSE 3000
