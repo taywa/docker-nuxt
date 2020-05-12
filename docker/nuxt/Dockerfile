@@ -24,7 +24,7 @@ COPY ./package/00/package.json ./package/00/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
-# nuxt/node layer 01
+# nuxt/node layer 01 / added apollo
 COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
