@@ -1,4 +1,4 @@
-{ 
+{
   "name": "nuxt",
   "version": "1.0.0",
   "description": "nuxt image",
@@ -19,6 +19,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/style-resources": "^1.0.0",
+    "get-graphql-schema": "^2.1.2",
     "node-sass": "^4.14.1",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
