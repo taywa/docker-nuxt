@@ -29,6 +29,11 @@ COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
+# nuxt/node layer 02 / added scrollactive / affix
+COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+    yarn install --ignore-optional
+
 # COPY s6/etc/services.d /etc/services.d
 # COPY s6/etc/cont-init.d /etc/cont-init.d
 ENV PATH=$PATH:/node_modules/.bin
