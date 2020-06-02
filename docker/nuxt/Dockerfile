@@ -34,6 +34,8 @@ COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
+RUN apk add --no-cache the_silver_searcher
+
 # COPY s6/etc/services.d /etc/services.d
 # COPY s6/etc/cont-init.d /etc/cont-init.d
 ENV PATH=$PATH:/node_modules/.bin
