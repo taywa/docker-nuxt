@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv sh
+
+START_NUXT=${START_NUXT:-NO}
+if [ "$START_NUXT" = "YES" ]; then
+    rm /etc/services.d/nuxt/down
+fi
