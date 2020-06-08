@@ -34,6 +34,11 @@ COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
+# nuxt/node layer 03 / added nuxt-i18n
+COPY ./package/03/package.json ./package/03/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+    yarn install --ignore-optional
+
 RUN apk add --no-cache the_silver_searcher
 ENV PATH=$PATH:/node_modules/.bin
 
