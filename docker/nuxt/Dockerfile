@@ -42,6 +42,11 @@ RUN --mount=type=cache,target=/tmp/yarn_cache \
 RUN apk add --no-cache the_silver_searcher
 ENV PATH=$PATH:/node_modules/.bin
 
+# nuxt/node layer 04 / added vue2-google-maps
+COPY ./package/04/package.json ./package/04/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+    yarn install --ignore-optional
+
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
 ENTRYPOINT ["/init"]
