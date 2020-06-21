@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:experimental
-FROM alpine:3.11.5
+FROM alpine:3.12.0
 MAINTAINER Yves Serrano <ys@taywa.ch>
 
 ENV LANG C.UTF-8
@@ -11,9 +11,11 @@ RUN apk add --no-cache \
         curl \
         nodejs \
         yarn \
+        the_silver_searcher \
         make
 RUN mkdir -p /opt/nuxt /node_modules /tmp/yarn_cache && ln -s /node_modules /opt/nuxt/node_modules
 WORKDIR /opt/nuxt/
+ENV PATH=$PATH:/node_modules/.bin
 
 # s6 overlay
 ARG S6_OVERLAY_VERSION=v1.22.1.0
@@ -21,29 +23,6 @@ RUN curl -Ls https://github.com/just-containers/s6-overlay/releases/download/$S6
 
 # nuxt/node layer 00
 COPY ./package/00/package.json ./package/00/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
-
-# nuxt/node layer 01 / added apollo
-COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
-
-# nuxt/node layer 02 / added scrollactive / affix
-COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
-
-# nuxt/node layer 03 / added nuxt-i18n
-COPY ./package/03/package.json ./package/03/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
-
-RUN apk add --no-cache the_silver_searcher
-ENV PATH=$PATH:/node_modules/.bin
-
-# nuxt/node layer 04 / added vue2-google-maps
-COPY ./package/04/package.json ./package/04/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
