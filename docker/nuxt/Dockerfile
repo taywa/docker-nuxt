@@ -31,7 +31,7 @@ COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
-# nuxt/node layer 02 added nxut proxy for external rss fetch
+# nuxt/node layer 02 added raw loader for xml
 COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional

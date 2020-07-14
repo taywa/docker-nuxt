@@ -27,6 +27,7 @@
     "nuxt-buefy": "^0.3.2",
     "nuxt-i18n": "^6.12.2",
     "plyr": "^3.6.2",
+    "raw-loader": "^4.0.1",
     "rss-parser": "^3.8.0",
     "sass-loader": "^8.0.2",
     "vue-affix": "^0.5.2",
