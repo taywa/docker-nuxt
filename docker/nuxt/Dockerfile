@@ -13,36 +13,17 @@ RUN apk add --no-cache \
         yarn \
         the_silver_searcher \
         make
-RUN mkdir -p /opt/nuxt /node_modules /tmp/yarn_cache && ln -s /node_modules /opt/nuxt/node_modules
+RUN mkdir -p /opt/nuxt /opt/node_modules /tmp/yarn_cache && ln -s /opt/node_modules /opt/nuxt/node_modules \
+    && echo "--modules-folder ../node_modules" > /opt/nuxt/.yarnrc
 WORKDIR /opt/nuxt/
-ENV PATH=$PATH:/node_modules/.bin
+ENV PATH=$PATH:/opt/node_modules/.bin
 
 # s6 overlay
 ARG S6_OVERLAY_VERSION=v1.22.1.0
 RUN curl -Ls https://github.com/just-containers/s6-overlay/releases/download/$S6_OVERLAY_VERSION/s6-overlay-amd64.tar.gz | tar xz -C /
 
-# nuxt/node layer 00
-COPY ./package/00/package.json ./package/00/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
-
-# nuxt/node layer 01, update nuxt, added date-fns
+# nuxt/node layer 01
 COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
-
-# nuxt/node layer 02 added raw loader for xml
-COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
-
-# nuxt/node layer 03 updated nuxt 2.14.4 added express
-COPY ./package/03/package.json ./package/03/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
-
-# nuxt/node layer 04 vue number counter
-COPY ./package/04/package.json ./package/04/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
