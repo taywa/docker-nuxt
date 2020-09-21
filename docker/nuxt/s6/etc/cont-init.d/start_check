@@ -4,3 +4,9 @@ START_NUXT=${START_NUXT:-NO}
 if [ "$START_NUXT" = "YES" ]; then
     rm /etc/services.d/nuxt/down
 fi
+
+START_ELASTICSEARCH=${START_ELASTICSEARCH:-NO}
+if [ "$START_ELASTICSEARCH" = "YES" ]; then
+    rm /etc/services.d/elasticsearch/down
+fi
+
