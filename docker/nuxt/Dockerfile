@@ -27,8 +27,8 @@ COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
-# nuxt/node layer 02
-COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
+# nuxt/node update buefy 0.4.3
+COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 

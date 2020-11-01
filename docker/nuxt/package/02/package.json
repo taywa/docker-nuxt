@@ -27,7 +27,7 @@
     "get-graphql-schema": "^2.1.2",
     "node-sass": "^4.14.1",
     "nuxt": "^2.14.6",
-    "nuxt-buefy": "0.3.31",
+    "nuxt-buefy": "0.4.3",
     "nuxt-i18n": "^6.13.12",
     "plyr": "^3.6.2",
     "raw-loader": "^4.0.1",
