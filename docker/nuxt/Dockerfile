@@ -22,15 +22,16 @@ ENV PATH=$PATH:/opt/node_modules/.bin
 ARG S6_OVERLAY_VERSION=v1.22.1.0
 RUN curl -Ls https://github.com/just-containers/s6-overlay/releases/download/$S6_OVERLAY_VERSION/s6-overlay-amd64.tar.gz | tar xz -C /
 
-# nuxt/node layer 01
+# nuxt/node layer 01 flatten includes old 02
+# nuxt/node update buefy, nuxt.js, added vue-pano, vue-matomo
 COPY ./package/01/package.json ./package/01/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
     yarn install --ignore-optional
 
-# nuxt/node update buefy 0.4.3
+# nuxt/node update remove @black40x/vue-pano, vuejs-vr, added vue-pannellum
 COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
-    yarn install --ignore-optional
+   yarn install --ignore-optional
 
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
