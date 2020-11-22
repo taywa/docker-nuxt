@@ -33,6 +33,11 @@ COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
+# nuxt/node update added vee-validate
+COPY ./package/03/package.json ./package/03/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+   yarn install --ignore-optional
+
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
 ENTRYPOINT ["/init"]
