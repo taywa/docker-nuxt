@@ -33,8 +33,14 @@ COPY ./package/02/package.json ./package/02/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
-# nuxt/node update added vee-validate
+# nuxt/node update added vee-validate, updated corejs
 COPY ./package/03/package.json ./package/03/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+   yarn install --ignore-optional
+
+# nuxt update packages, remove plyr vue-plyr, add nuxt sitemap
+COPY ./package/04/package.json ./package/04/yarn.lock /opt/nuxt/
+RUN apk add --no-cache rsync bash
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
