@@ -44,6 +44,12 @@ RUN apk add --no-cache rsync bash
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
+# nuxt update packages to 2.15.0-edge because of nuxt genrate error
+COPY ./package/05/package.json ./package/05/yarn.lock /opt/nuxt/
+RUN apk add --no-cache rsync bash
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+   yarn install --ignore-optional
+
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
 ENTRYPOINT ["/init"]
