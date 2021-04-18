@@ -43,7 +43,7 @@ COPY ./package/04/package.json ./package/04/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
-# added nuxt composition, nuxt content
+# added nuxt composition, nuxt content, babel ie11
 COPY ./package/05/package.json ./package/05/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
