@@ -48,7 +48,12 @@ COPY ./package/05/package.json ./package/05/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
-RUN apk add --no-cache rsync
+# added vue-masonry
+COPY ./package/06/package.json ./package/06/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+   yarn install --ignore-optional
+
+RUN apk add --no-cache rsync bash
 
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
