@@ -53,13 +53,12 @@ COPY ./package/06/package.json ./package/06/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
+RUN apk add --no-cache rsync bash
+
 # added vue-social-sharing
 COPY ./package/07/package.json ./package/07/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
-
-
-RUN apk add --no-cache rsync bash
 
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
