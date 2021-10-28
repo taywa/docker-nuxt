@@ -60,6 +60,11 @@ COPY ./package/07/package.json ./package/07/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
+# added replace vue-masonry with vue-masonry-css
+COPY ./package/08/package.json ./package/08/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+   yarn install --ignore-optional
+
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
 ENTRYPOINT ["/init"]
