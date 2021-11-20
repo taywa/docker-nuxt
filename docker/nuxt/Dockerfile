@@ -63,6 +63,11 @@ RUN --mount=type=cache,target=/tmp/yarn_cache \
 # added replace vue-masonry with vue-masonry-css
 COPY ./package/08/package.json ./package/08/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
+  yarn install --ignore-optional
+
+# added cookie-universal-nuxt and jwt-decode
+COPY ./package/09/package.json ./package/09/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
    yarn install --ignore-optional
 
 COPY s6/etc/services.d /etc/services.d
