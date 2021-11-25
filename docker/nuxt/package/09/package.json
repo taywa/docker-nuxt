@@ -51,7 +51,7 @@
     "v-runtime-template": "^1.10.0",
     "vee-validate": "^3.4.5",
     "vue-affix": "^0.5.2",
-    "vue-masonry": "^0.13.0",
+    "vue-masonry-css": "^1.0.3",
     "vue-matomo": "^3.14.0-0",
     "vue-number-animation": "^1.0.5",
     "vue-pannellum": "^0.5.1",
