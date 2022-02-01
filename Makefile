@@ -20,9 +20,9 @@ build-push:
 		--progress=plain \
 		--platform linux/arm64,linux/amd64 \
 		--cache-from=type=registry,ref=taywa/nuxt:$(NUXT_VERSION_PREV) \
-		--cache-to=type=registry,ref=taywa/nuxt:$(NUXT_VERSION_PREV),mode=max \
 		--build-arg BUILDKIT_INLINE_CACHE=1 \
 		-t taywa/nuxt:$(NUXT_VERSION) \
 		nuxt
 
 #  --cache-from taywa/nuxt:$(NUXT_VERSION_PREV) \
+#  --cache-to=type=registry,ref=taywa/nuxt:$(NUXT_VERSION_PREV),mode=max \
