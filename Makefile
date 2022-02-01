@@ -1,5 +1,5 @@
-NUXT_VERSION=2.14.7j
-NUXT_VERSION_PREV=2.14.7i
+NUXT_VERSION=2.14.7k
+NUXT_VERSION_PREV=2.14.7j
 
 .PHONY: all
 
@@ -17,8 +17,12 @@ build-push:
 	cd docker && DOCKER_BUILDKIT=1 \
 	docker buildx build \
 		--push \
+		--progress=plain \
 		--platform linux/arm64,linux/amd64 \
-		--cache-from taywa/nuxt:$(NUXT_VERSION_PREV) \
+		--cache-from=type=registry,ref=taywa/nuxt:$(NUXT_VERSION_PREV) \
+		--cache-to=type=registry,ref=taywa/nuxt:$(NUXT_VERSION_PREV),mode=max \
 		--build-arg BUILDKIT_INLINE_CACHE=1 \
 		-t taywa/nuxt:$(NUXT_VERSION) \
 		nuxt
+
+#  --cache-from taywa/nuxt:$(NUXT_VERSION_PREV) \
