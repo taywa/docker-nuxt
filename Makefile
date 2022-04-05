@@ -33,5 +33,9 @@ build-push:
 		-t taywa/nuxt:$(NUXT_VERSION) \
 		nuxt
 
-#  --cache-from taywa/nuxt:$(NUXT_VERSION_PREV) \
-#  --cache-to=type=registry,ref=taywa/nuxt:$(NUXT_VERSION_PREV),mode=max \
+push-arch:
+	docker tag taywa/nuxt:$(NUXT_VERSION) taywa/nuxt:$(NUXT_VERSION)-`arch|sed 's/x86_64/amd64/'`
+	docker push taywa/nuxt:$(NUXT_VERSION)-`arch|sed 's/x86_64/amd64/'`
+
+push-manifest:
+	manifest-tool --debug push from-spec manifest.yaml
