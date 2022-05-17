@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:experimental
-FROM alpine:3.12.9
+FROM alpine:3.12.12
 MAINTAINER Yves Serrano <ys@taywa.ch>
 
 ENV LANG C.UTF-8
@@ -14,7 +14,9 @@ RUN apk add --no-cache \
         the_silver_searcher \
         make \
         rsync \
-        bash
+        bash \
+        jq \
+        git
 RUN mkdir -p /opt/nuxt /opt/node_modules /tmp/yarn_cache && ln -s /opt/node_modules /opt/nuxt/node_modules \
     && echo "--modules-folder ../node_modules" > /opt/nuxt/.yarnrc
 WORKDIR /opt/nuxt/
@@ -24,25 +26,13 @@ ENV PATH=$PATH:/opt/node_modules/.bin
 ARG S6_OVERLAY_VERSION=v1.22.1.0
 RUN curl -Ls https://github.com/just-containers/s6-overlay/releases/download/$S6_OVERLAY_VERSION/s6-overlay-`arch|sed 's/x86_64/amd64/'`.tar.gz | tar xz -C /
 
-# added cookie-universal-nuxt and jwt-decode
-COPY ./package/09/package.json ./package/09/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-   apk add python2 g++ \
-   && yarn install --ignore-optional \
-   && apk del python2 g++
-
-# added replace vue-masonry with vue-masonry-css
-COPY ./package/10/package.json ./package/10/yarn.lock /opt/nuxt/
-RUN --mount=type=cache,target=/tmp/yarn_cache \
-  yarn install --ignore-optional
-
-# added rss feed
+# flatten layer with rss feed
 COPY ./package/11/package.json ./package/11/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
-  yarn install --ignore-optional
+    apk add python2 g++ \
+    && yarn install --ignore-optional \
+    && apk del python2 g++
 
-# add jq and git
-RUN apk add --no-cache jq git
 
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
