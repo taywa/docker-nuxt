@@ -1,5 +1,5 @@
-NUXT_VERSION=2.14.7n
-NUXT_VERSION_PREV=2.14.7m
+NUXT_VERSION=2.14.7o
+NUXT_VERSION_PREV=2.14.7n
 
 .PHONY: all
 
@@ -8,7 +8,6 @@ build-arch:
 	docker buildx build \
 		--load \
 		--platform linux/`arch|sed 's/x86_64/amd64/'` \
-		--cache-from taywa/nuxt:$(NUXT_VERSION_PREV) \
 		--build-arg BUILDKIT_INLINE_CACHE=1 \
 		-t taywa/nuxt:$(NUXT_VERSION) \
 		nuxt

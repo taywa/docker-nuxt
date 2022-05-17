@@ -36,6 +36,11 @@ COPY ./package/10/package.json ./package/10/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
   yarn install --ignore-optional
 
+# added rss feed
+COPY ./package/11/package.json ./package/11/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+  yarn install --ignore-optional
+
 # add jq and git
 RUN apk add --no-cache jq git
 
