@@ -29,7 +29,6 @@ build-arch:
 # 		nuxt
 
 push-arch:
-	docker tag taywa/nuxt:$(NUXT_VERSION) taywa/nuxt:$(NUXT_VERSION)-`arch|sed 's/x86_64/amd64/'`
 	docker push taywa/nuxt:$(NUXT_VERSION)-`arch|sed 's/x86_64/amd64/'`
 
 push-manifest:
