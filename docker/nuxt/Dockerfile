@@ -33,6 +33,13 @@ RUN --mount=type=cache,target=/tmp/yarn_cache \
     && yarn install --ignore-optional \
     && apk del python2 g++
 
+# added keycloak-js
+COPY ./package/12/package.json ./package/12/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+  yarn install --ignore-optional
+
+# add jq and git
+RUN apk add --no-cache jq git
 
 COPY s6/etc/services.d /etc/services.d
 COPY s6/etc/cont-init.d /etc/cont-init.d
