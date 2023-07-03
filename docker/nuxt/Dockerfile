@@ -38,6 +38,11 @@ COPY ./package/12/package.json ./package/12/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
   yarn install --ignore-optional
 
+# added vue-plyr
+COPY ./package/13/package.json ./package/13/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+  yarn install --ignore-optional
+
 # add jq and git
 RUN apk add --no-cache jq git
 
