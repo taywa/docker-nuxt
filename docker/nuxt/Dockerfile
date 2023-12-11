@@ -43,6 +43,11 @@ COPY ./package/13/package.json ./package/13/yarn.lock /opt/nuxt/
 RUN --mount=type=cache,target=/tmp/yarn_cache \
   yarn install --ignore-optional
 
+# updated composition api
+COPY ./package/14/package.json ./package/14/yarn.lock /opt/nuxt/
+RUN --mount=type=cache,target=/tmp/yarn_cache \
+  yarn install --ignore-optional
+
 # add jq and git
 RUN apk add --no-cache jq git
 
