@@ -14,7 +14,7 @@ build-arch() {
 		nuxt
 }
 
-build-archs() {
+push-archs() {
     cd docker
 	DOCKER_BUILDKIT=1 docker buildx build \
 		--push \
