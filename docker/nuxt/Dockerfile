@@ -26,4 +26,5 @@ RUN mkdir -p /opt/nuxt3 /opt/node_modules && ln -s /opt/node_modules /opt/nuxt3/
 
 COPY ./package/01/package.json ./package/01/pnpm-lock.yaml /opt/nuxt3/
 RUN pnpm install
+
 EXPOSE 3000
