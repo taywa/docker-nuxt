@@ -1,0 +1,60 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "codegen": "graphql-codegen",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/client-preset": "^4.2.5",
+    "@graphql-codegen/typescript": "^4.0.7",
+    "@graphql-codegen/typescript-operations": "^4.2.1",
+    "@graphql-codegen/typescript-urql": "^4.0.0",
+    "@opentelemetry/api": "^1.9.0",
+    "@urql/core": "^5.0.1",
+    "@urql/vue": "^1.2.1",
+    "@vueuse/core": "^10.9.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "embla-carousel": "^8.0.2",
+    "embla-carousel-autoplay": "^8.0.2",
+    "embla-carousel-vue": "^8.0.2",
+    "lucide-vue-next": "^0.340.0",
+    "radix-vue": "^1.7.2",
+    "sass": "^1.75.0",
+    "swiper": "^11.1.4",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
+    "vue": "^3.4.24",
+    "vue-number-animation": "^2.0.2",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^0.3.13",
+    "@nuxtjs/i18n": "^8.3.0",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@stefanobartoletti/nuxt-social-share": "^0.7.0",
+    "graphql": "^16.8.2",
+    "nuxt": "^3.12.2",
+    "oxlint": "^0.2.18",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "shadcn-nuxt": "^0.9.0",
+    "typescript": "^5.4.5"
+  },
+  "optionalDependencies": {
+    "@oxc-parser/binding-linux-arm64-musl": "^0.5.0",
+    "@oxc-parser/binding-linux-x64-musl": "^0.5.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@opentelemetry/api": "~1.8.0"
+    }
+  }
+}
