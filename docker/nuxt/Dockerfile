@@ -20,7 +20,7 @@ WORKDIR /opt/nuxt3/
 RUN mkdir -p /opt/nuxt3 /opt/node_modules && ln -s /opt/node_modules /opt/nuxt3/node_modules \
     && cd /opt/nuxt3 \
     && echo "prefix = /opt/node_modules" > /root/.npmrc \
-    && npm install -g pnpm \
+    && npm install -g pnpm@9.4.0 \
     && pnpm config set store-dir /opt/.pnpm-store
 
 COPY ./package/01/package.json ./package/01/pnpm-lock.yaml /opt/nuxt3/
