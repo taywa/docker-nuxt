@@ -21,6 +21,7 @@
     "@urql/core": "^5.0.1",
     "@urql/vue": "^1.2.1",
     "@vee-validate/nuxt": "^4.13.1",
+    "@vee-validate/yup": "^4.13.1",
     "@vueuse/core": "^10.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
