@@ -4,7 +4,7 @@ set -euo pipefail
 
 NUXT_VERSION="3.x"
 
-build-arch() {
+build() {
     cd docker
 	DOCKER_BUILDKIT=1 docker buildx build \
 		--load \
@@ -14,7 +14,7 @@ build-arch() {
 		nuxt
 }
 
-push-archs() {
+push() {
 	cd docker
 	DOCKER_BUILDKIT=1 docker buildx build \
 		--push \
