@@ -44,6 +44,12 @@ importers:
       '@vueuse/core':
         specifier: ^10.9.0
         version: 10.11.0(vue@3.4.29(typescript@5.4.5))
+      '@zadigetvoltaire/nuxt-gtm':
+        specifier: ^0.0.13
+        version: 0.0.13(magicast@0.3.4)(nuxt@3.12.2(@opentelemetry/api@1.8.0)(@parcel/watcher@2.4.1)(@types/node@20.14.5)(@unocss/reset@0.61.0)(change-case@4.1.2)(encoding@0.1.13)(eslint@8.57.0)(floating-vue@5.2.2(@nuxt/kit@3.12.2(magicast@0.3.4)(rollup@4.18.0))(vue@3.4.29(typescript@5.4.5)))(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.0)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(unocss@0.61.0(postcss@8.4.38)(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.5)(sass@1.77.6)(terser@5.31.1)))(vite@5.3.1(@types/node@20.14.5)(sass@1.77.6)(terser@5.31.1)))(rollup@4.18.0)(vue@3.4.29(typescript@5.4.5))
+      atob:
+        specifier: ^2.1.2
+        version: 2.1.2
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -63,8 +69,8 @@ importers:
         specifier: ^0.340.0
         version: 0.340.0(vue@3.4.29(typescript@5.4.5))
       radix-vue:
-        specifier: ^1.7.2
-        version: 1.8.4(vue@3.4.29(typescript@5.4.5))
+        specifier: ^1.9.0
+        version: 1.9.0(vue@3.4.29(typescript@5.4.5))
       sass:
         specifier: ^1.75.0
         version: 1.77.6
@@ -80,6 +86,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.4)
+      virtua:
+        specifier: ^0.33.2
+        version: 0.33.2(vue@3.4.29(typescript@5.4.5))
       vue:
         specifier: ^3.4.24
         version: 3.4.29(typescript@5.4.5)
@@ -89,6 +98,9 @@ importers:
       vue-router:
         specifier: ^4.3.2
         version: 4.3.3(vue@3.4.29(typescript@5.4.5))
+      vue3-google-map:
+        specifier: ^0.20.0
+        version: 0.20.0(vue@3.4.29(typescript@5.4.5))
       yup:
         specifier: ^1.4.0
         version: 1.4.0
@@ -841,14 +853,20 @@ packages:
   '@floating-ui/dom@1.1.1':
     resolution: {integrity: sha512-TpIO93+DIujg3g7SykEAGZMDtbJRrmnYRCNYSjJlvIbGhBjRSNTLVbNeDQBrzy9qDgUbiWdc7KA0uZHZ2tJmiw==}
 
-  '@floating-ui/dom@1.6.5':
-    resolution: {integrity: sha512-Nsdud2X65Dz+1RHjAIP0t8z5e2ff/IRbei6BqFrl1urT8sDVzM1HMQ+R0XcU5ceRfyO3I6ayeqIfh+6Wb8LGTw==}
+  '@floating-ui/dom@1.6.7':
+    resolution: {integrity: sha512-wmVfPG5o2xnKDU4jx/m4w5qva9FWHcnZ8BvzEe90D/RpwsJaTAVYPEPdQ8sbr/N8zZTAHlZUTQdqg8ZUbzHmng==}
 
-  '@floating-ui/utils@0.2.2':
-    resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
+  '@floating-ui/utils@0.2.4':
+    resolution: {integrity: sha512-dWO2pw8hhi+WrXq1YJy2yCuWoL20PddgGaqTgVe4cOS9Q6qklXCiA1tJEqX6BEwRNSCP84/afac9hd4MS+zEUA==}
 
-  '@floating-ui/vue@1.0.6':
-    resolution: {integrity: sha512-EdrOljjkpkkqZnrpqUcPoz9NvHxuTjUtSInh6GMv3+Mcy+giY2cE2pHh9rpacRcZ2eMSCxel9jWkWXTjLmY55w==}
+  '@floating-ui/vue@1.1.1':
+    resolution: {integrity: sha512-cyawjk9etPZPl/RVtMRnWrwtAhWbPVSrRVYARgOzhLIqxr0k2up1APrrFjqP9QwRQ0AwjKSvbWg4YC6jESutow==}
+
+  '@googlemaps/js-api-loader@1.16.6':
+    resolution: {integrity: sha512-V8p5W9DbPQx74jWUmyYJOerhiB4C+MHekaO0ZRmc6lrOYrvY7+syLhzOWpp55kqSPeNb+qbC2h8i69aLIX6krQ==}
+
+  '@googlemaps/markerclusterer@2.5.3':
+    resolution: {integrity: sha512-x7lX0R5yYOoiNectr10wLgCBasNcXFHiADIBdmn7jQllF2B5ENQw5XtZK+hIw4xnV0Df0xhN4LN98XqA5jaiOw==}
 
   '@graphql-codegen/add@5.0.3':
     resolution: {integrity: sha512-SxXPmramkth8XtBlAHu4H4jYcYXM/o3p01+psU+0NADQowA8jtYkK6MW5rV6T+CxkEaNZItfSmZRPgIuypcqnA==}
@@ -1100,6 +1118,14 @@ packages:
     resolution: {integrity: sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==}
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+
+  '@gtm-support/core@2.3.1':
+    resolution: {integrity: sha512-eD0hndQjhgKm5f/7IA9fZYujmHiVMY+fnYv4mdZSmz5XJQlS4TiTmpdZx2l7I2A9rI9J6Ysz8LpXYYNo/Xq4LQ==}
+
+  '@gtm-support/vue-gtm@2.2.0':
+    resolution: {integrity: sha512-7nhBTRkTG0mD+7r7JvNalJz++YwszZk0oP1HIY6fCgz6wNKxT6LuiXCqdPrZmNPe/WbPIKuqxGZN5s+i6NZqow==}
+    peerDependencies:
+      vue: '>= 3.2.0 < 4.0.0'
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -1853,11 +1879,11 @@ packages:
   '@swc/helpers@0.5.11':
     resolution: {integrity: sha512-YNlnKRWF2sVojTpIyzwou9XoTNbzbzONwRhOoniEioF1AtaitTvVZblaQRrAzChWQ1bLYyYSWzM18y4WwgzJ+A==}
 
-  '@tanstack/virtual-core@3.5.1':
-    resolution: {integrity: sha512-046+AUSiDru/V9pajE1du8WayvBKeCvJ2NmKPy/mR8/SbKKrqmSbj7LJBfXE+nSq4f5TBXvnCzu0kcYebI9WdQ==}
+  '@tanstack/virtual-core@3.8.2':
+    resolution: {integrity: sha512-ffpN6kTaPGwQPoWMcBAHbdv2ZCpj1SugldoYAcY0C4xH+Pej1KCOEUisNeEgbUnXOp8Y/4q6wGPu2tFHthOIQw==}
 
-  '@tanstack/vue-virtual@3.5.1':
-    resolution: {integrity: sha512-6mc4HtDPieDVKD6GqzHiJkdzuqRNdQZuoIbkwE6af939WV+w62YmSF69jN+BOqClqh/ObiW+X1VOQx1Pftrx1A==}
+  '@tanstack/vue-virtual@3.8.2':
+    resolution: {integrity: sha512-mVix+nFKajrA+48ky5s7/IYP5/uHHLTz1ZRJfwg2bOLcHUcKyvsLE2UGG4+8hd62ueprWg5MgTudGyR2TYfwpw==}
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
@@ -2282,6 +2308,11 @@ packages:
     resolution: {integrity: sha512-LS8tSomZa3YHnntpWt3PP43iFEEl6YeIsvDakczHBKlay5LdkXFr8w7v8H6akpG5nRrzydyB0k1iE2eoL6aKIQ==}
     engines: {node: '>=16.0.0'}
 
+  '@zadigetvoltaire/nuxt-gtm@0.0.13':
+    resolution: {integrity: sha512-7SgXtIB8uLdLGJaoUAQSGCSbRnNzplNkNVFKIHaVI4We0vqghstBoVPlJCJ9VdwsfdNyk3/C+Lh1uKpzTrtEuw==}
+    peerDependencies:
+      nuxt: ^3.0.0
+
   abbrev@1.1.1:
     resolution: {integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==}
 
@@ -2445,6 +2476,11 @@ packages:
   at-least-node@1.0.0:
     resolution: {integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==}
     engines: {node: '>= 4.0.0'}
+
+  atob@2.1.2:
+    resolution: {integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==}
+    engines: {node: '>= 4.5.0'}
+    hasBin: true
 
   auto-bind@4.0.0:
     resolution: {integrity: sha512-Hdw8qdNiqdJ8LqT0iK0sVzkFbzg6fhnQqqfWhBDxcHZvU75+B+ayzTy8x+k5Ix0Y92XOhOUlx74ps+bA6BeYMQ==}
@@ -4005,6 +4041,9 @@ packages:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
 
+  kdbush@4.0.2:
+    resolution: {integrity: sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==}
+
   keygrip@1.1.0:
     resolution: {integrity: sha512-iYSchDJ+liQ8iwbSI2QqsQOvqv58eJCEanyJPJi+Khyu8smkcKSFUCbPwzFcL7YVtZ6eONjqRX/38caJ7QjRAQ==}
     engines: {node: '>= 0.6'}
@@ -5097,8 +5136,8 @@ packages:
   queue-tick@1.0.1:
     resolution: {integrity: sha512-kJt5qhMxoszgU/62PLP1CJytzd2NKetjSRnyuj31fDd3Rlcz3fzlFdFLD1SItunPwyqEOkca6GbV612BWfaBag==}
 
-  radix-vue@1.8.4:
-    resolution: {integrity: sha512-Pc8BKFQouARED1Lb7/s18Fxny3ZodET5fyXLorW5zf/BiUDQv9gk7NZEYv9sU3uldSvpO3JLLChd0q2repBdGw==}
+  radix-vue@1.9.0:
+    resolution: {integrity: sha512-Ds1GpB6IBhSyFePWyxDhnqA7Ymgmcxah3t5qWxamftqX/zFRkkf5RaRxzuGB8QgdbP6Q/t7scIdMEcndhFc+Tg==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -5563,6 +5602,9 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
 
+  supercluster@8.0.1:
+    resolution: {integrity: sha512-IiOea5kJ9iqzD2t7QJq/cREyLHTtSmUT6gQsweojg9WH2sYJqZK9SswTu6jrscO6D1G5v5vYZ9ru/eq85lXeZQ==}
+
   supports-color@5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
@@ -5965,6 +6007,26 @@ packages:
     peerDependencies:
       vue: ^3.4.26
 
+  virtua@0.33.2:
+    resolution: {integrity: sha512-4NgtryQH/idQ3oKkwM6DRCoCsn+IrjrStGcDOARPdlY7zIg0AtTcUq24nysM8YyHoS6KhqcVe8A3+lHJidNQWA==}
+    peerDependencies:
+      react: '>=16.14.0'
+      react-dom: '>=16.14.0'
+      solid-js: '>=1.0'
+      svelte: '>=4.0'
+      vue: '>=3.2'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      solid-js:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+
   vite-hot-client@0.2.3:
     resolution: {integrity: sha512-rOGAV7rUlUHX89fP2p2v0A2WWvV3QMX2UYq0fRqsWSvFvev4atHWqjwGoKaZT1VTKyLGk533ecu3eyd0o59CAg==}
     peerDependencies:
@@ -6166,6 +6228,12 @@ packages:
     resolution: {integrity: sha512-b8/f5NQ5nIEBRTNi6GcPItE4s7kxNHw2AIHLtDp+2QvqdTjVN0FgONwX9cr53jWRgnu+HRLPaWDOR2JPI5MTfQ==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue3-google-map@0.20.0:
+    resolution: {integrity: sha512-GUih2O3lhKKBjl9jODZgva5OtwX2DXQJEL+6EO7sEk9mD8AJbSjxbT8KjfKUP90fYIwUmZpwvcEU0cqiCLCeaA==}
+    engines: {node: '>=16.11.0'}
+    peerDependencies:
+      vue: ^3
 
   vue@3.4.29:
     resolution: {integrity: sha512-8QUYfRcYzNlYuzKPfge1UWC6nF9ym0lx7mpGVPJYNhddxEf3DD0+kU07NTL0sXuiT2HuJuKr/iEO8WvXvT0RSQ==}
@@ -7023,27 +7091,36 @@ snapshots:
 
   '@floating-ui/core@1.6.2':
     dependencies:
-      '@floating-ui/utils': 0.2.2
+      '@floating-ui/utils': 0.2.4
 
   '@floating-ui/dom@1.1.1':
     dependencies:
       '@floating-ui/core': 1.6.2
 
-  '@floating-ui/dom@1.6.5':
+  '@floating-ui/dom@1.6.7':
     dependencies:
       '@floating-ui/core': 1.6.2
-      '@floating-ui/utils': 0.2.2
+      '@floating-ui/utils': 0.2.4
 
-  '@floating-ui/utils@0.2.2': {}
+  '@floating-ui/utils@0.2.4': {}
 
-  '@floating-ui/vue@1.0.6(vue@3.4.29(typescript@5.4.5))':
+  '@floating-ui/vue@1.1.1(vue@3.4.29(typescript@5.4.5))':
     dependencies:
-      '@floating-ui/dom': 1.6.5
-      '@floating-ui/utils': 0.2.2
+      '@floating-ui/dom': 1.6.7
+      '@floating-ui/utils': 0.2.4
       vue-demi: 0.14.8(vue@3.4.29(typescript@5.4.5))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  '@googlemaps/js-api-loader@1.16.6':
+    dependencies:
+      fast-deep-equal: 3.1.3
+
+  '@googlemaps/markerclusterer@2.5.3':
+    dependencies:
+      fast-deep-equal: 3.1.3
+      supercluster: 8.0.1
 
   '@graphql-codegen/add@5.0.3(graphql@16.8.2)':
     dependencies:
@@ -7547,6 +7624,15 @@ snapshots:
   '@graphql-typed-document-node/core@3.2.0(graphql@16.8.2)':
     dependencies:
       graphql: 16.8.2
+
+  '@gtm-support/core@2.3.1': {}
+
+  '@gtm-support/vue-gtm@2.2.0(vue@3.4.29(typescript@5.4.5))':
+    dependencies:
+      '@gtm-support/core': 2.3.1
+      vue: 3.4.29(typescript@5.4.5)
+    optionalDependencies:
+      vue-router: 4.3.3(vue@3.4.29(typescript@5.4.5))
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
@@ -8579,11 +8665,11 @@ snapshots:
     dependencies:
       tslib: 2.6.3
 
-  '@tanstack/virtual-core@3.5.1': {}
+  '@tanstack/virtual-core@3.8.2': {}
 
-  '@tanstack/vue-virtual@3.5.1(vue@3.4.29(typescript@5.4.5))':
+  '@tanstack/vue-virtual@3.8.2(vue@3.4.29(typescript@5.4.5))':
     dependencies:
-      '@tanstack/virtual-core': 3.5.1
+      '@tanstack/virtual-core': 3.8.2
       vue: 3.4.29(typescript@5.4.5)
 
   '@trysound/sax@0.2.0': {}
@@ -9255,6 +9341,19 @@ snapshots:
       fast-querystring: 1.1.2
       tslib: 2.6.3
 
+  '@zadigetvoltaire/nuxt-gtm@0.0.13(magicast@0.3.4)(nuxt@3.12.2(@opentelemetry/api@1.8.0)(@parcel/watcher@2.4.1)(@types/node@20.14.5)(@unocss/reset@0.61.0)(change-case@4.1.2)(encoding@0.1.13)(eslint@8.57.0)(floating-vue@5.2.2(@nuxt/kit@3.12.2(magicast@0.3.4)(rollup@4.18.0))(vue@3.4.29(typescript@5.4.5)))(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.0)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(unocss@0.61.0(postcss@8.4.38)(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.5)(sass@1.77.6)(terser@5.31.1)))(vite@5.3.1(@types/node@20.14.5)(sass@1.77.6)(terser@5.31.1)))(rollup@4.18.0)(vue@3.4.29(typescript@5.4.5))':
+    dependencies:
+      '@gtm-support/vue-gtm': 2.2.0(vue@3.4.29(typescript@5.4.5))
+      '@nuxt/kit': 3.12.2(magicast@0.3.4)(rollup@4.18.0)
+      defu: 6.1.4
+      nuxt: 3.12.2(@opentelemetry/api@1.8.0)(@parcel/watcher@2.4.1)(@types/node@20.14.5)(@unocss/reset@0.61.0)(change-case@4.1.2)(encoding@0.1.13)(eslint@8.57.0)(floating-vue@5.2.2(@nuxt/kit@3.12.2(magicast@0.3.4)(rollup@4.18.0))(vue@3.4.29(typescript@5.4.5)))(ioredis@5.4.1)(magicast@0.3.4)(optionator@0.9.4)(rollup@4.18.0)(sass@1.77.6)(terser@5.31.1)(typescript@5.4.5)(unocss@0.61.0(postcss@8.4.38)(rollup@4.18.0)(vite@5.3.1(@types/node@20.14.5)(sass@1.77.6)(terser@5.31.1)))(vite@5.3.1(@types/node@20.14.5)(sass@1.77.6)(terser@5.31.1))
+      sirv: 2.0.4
+    transitivePeerDependencies:
+      - magicast
+      - rollup
+      - supports-color
+      - vue
+
   abbrev@1.1.1: {}
 
   abbrev@2.0.0: {}
@@ -9417,6 +9516,8 @@ snapshots:
   async@3.2.5: {}
 
   at-least-node@1.0.0: {}
+
+  atob@2.1.2: {}
 
   auto-bind@4.0.0: {}
 
@@ -11144,6 +11245,8 @@ snapshots:
 
   jsonparse@1.3.1: {}
 
+  kdbush@4.0.2: {}
+
   keygrip@1.1.0:
     dependencies:
       tsscmp: 1.0.6
@@ -12402,13 +12505,13 @@ snapshots:
 
   queue-tick@1.0.1: {}
 
-  radix-vue@1.8.4(vue@3.4.29(typescript@5.4.5)):
+  radix-vue@1.9.0(vue@3.4.29(typescript@5.4.5)):
     dependencies:
-      '@floating-ui/dom': 1.6.5
-      '@floating-ui/vue': 1.0.6(vue@3.4.29(typescript@5.4.5))
+      '@floating-ui/dom': 1.6.7
+      '@floating-ui/vue': 1.1.1(vue@3.4.29(typescript@5.4.5))
       '@internationalized/date': 3.5.4
       '@internationalized/number': 3.5.3
-      '@tanstack/vue-virtual': 3.5.1(vue@3.4.29(typescript@5.4.5))
+      '@tanstack/vue-virtual': 3.8.2(vue@3.4.29(typescript@5.4.5))
       '@vueuse/core': 10.11.0(vue@3.4.29(typescript@5.4.5))
       '@vueuse/shared': 10.11.0(vue@3.4.29(typescript@5.4.5))
       aria-hidden: 1.2.4
@@ -12716,7 +12819,7 @@ snapshots:
       ora: 8.0.1
       pathe: 1.1.2
       prompts: 2.4.2
-      radix-vue: 1.8.4(vue@3.4.29(typescript@5.4.5))
+      radix-vue: 1.9.0(vue@3.4.29(typescript@5.4.5))
       ts-morph: 22.0.0
       tsconfig-paths: 4.2.0
       vitest: 1.6.0(@types/node@20.14.5)(@vitest/ui@1.6.0)(sass@1.77.6)(terser@5.31.1)
@@ -12947,6 +13050,10 @@ snapshots:
       mz: 2.7.0
       pirates: 4.0.6
       ts-interface-checker: 0.1.13
+
+  supercluster@8.0.1:
+    dependencies:
+      kdbush: 4.0.2
 
   supports-color@5.5.0:
     dependencies:
@@ -13387,6 +13494,10 @@ snapshots:
       type-fest: 4.20.1
       vue: 3.4.29(typescript@5.4.5)
 
+  virtua@0.33.2(vue@3.4.29(typescript@5.4.5)):
+    optionalDependencies:
+      vue: 3.4.29(typescript@5.4.5)
+
   vite-hot-client@0.2.3(vite@5.3.1(@types/node@20.14.5)(sass@1.77.6)(terser@5.31.1)):
     dependencies:
       vite: 5.3.1(@types/node@20.14.5)(sass@1.77.6)(terser@5.31.1)
@@ -13591,6 +13702,13 @@ snapshots:
       vue: 3.4.29(typescript@5.4.5)
       vue-observe-visibility: 2.0.0-alpha.1(vue@3.4.29(typescript@5.4.5))
       vue-resize: 2.0.0-alpha.1(vue@3.4.29(typescript@5.4.5))
+
+  vue3-google-map@0.20.0(vue@3.4.29(typescript@5.4.5)):
+    dependencies:
+      '@googlemaps/js-api-loader': 1.16.6
+      '@googlemaps/markerclusterer': 2.5.3
+      fast-deep-equal: 3.1.3
+      vue: 3.4.29(typescript@5.4.5)
 
   vue@3.4.29(typescript@5.4.5):
     dependencies:
