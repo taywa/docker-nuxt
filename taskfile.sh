@@ -5,7 +5,7 @@ set -euo pipefail
 NUXT_VERSION="3.x"
 
 build() {
-    cd docker
+	cd docker
 	DOCKER_BUILDKIT=1 docker buildx build \
 		--load \
 		--platform linux/`arch|sed 's/x86_64/amd64/'` \
