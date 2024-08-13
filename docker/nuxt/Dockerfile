@@ -27,5 +27,7 @@ COPY ./package/01/package.json ./package/01/pnpm-lock.yaml /opt/nuxt3/
 RUN pnpm install
 COPY ./package/02/package.json ./package/02/pnpm-lock.yaml /opt/nuxt3/
 RUN pnpm install
+COPY ./package/03/package.json ./package/03/pnpm-lock.yaml /opt/nuxt3/
+RUN pnpm install
 
 EXPOSE 3000
