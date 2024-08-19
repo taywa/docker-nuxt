@@ -65,6 +65,9 @@ importers:
       embla-carousel-vue:
         specifier: ^8.0.2
         version: 8.1.8(vue@3.4.37(typescript@5.5.4))
+      keycloak-js:
+        specifier: ^25.0.4
+        version: 25.0.4
       lucide-vue-next:
         specifier: ^0.340.0
         version: 0.340.0(vue@3.4.37(typescript@5.5.4))
@@ -3766,6 +3769,9 @@ packages:
   jose@5.6.3:
     resolution: {integrity: sha512-1Jh//hEEwMhNYPDDLwXHa2ePWgWiFNNUadVmguAAw2IJ6sj9mNxV5tGXJNqlMkJAybF6Lgw1mISDxTePP/187g==}
 
+  js-sha256@0.11.0:
+    resolution: {integrity: sha512-6xNlKayMZvds9h1Y1VWc0fQHQ82BxTXizWPEtEeGvmOUYpBRy4gbWroHLpzowe6xiQhHpelCQiE7HEdznyBL9Q==}
+
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -3829,8 +3835,15 @@ packages:
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
 
+  jwt-decode@4.0.0:
+    resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
+    engines: {node: '>=18'}
+
   kdbush@4.0.2:
     resolution: {integrity: sha512-WbCVYJ27Sz8zi9Q7Q0xHC+05iwkm3Znipc2XTlrnJbsHMYktW4hPhXUE8Ys1engBrvffoSCqbil1JQAa7clRpA==}
+
+  keycloak-js@25.0.4:
+    resolution: {integrity: sha512-LW7dVgqcBxMnnJTdmh7Zgd0NpStJnX2sCMrJGqcGtm4zmk4Rwlqk2o2uOvY7PaRHHYePXfbIwrqVhlN3GAnRCg==}
 
   keygrip@1.1.0:
     resolution: {integrity: sha512-iYSchDJ+liQ8iwbSI2QqsQOvqv58eJCEanyJPJi+Khyu8smkcKSFUCbPwzFcL7YVtZ6eONjqRX/38caJ7QjRAQ==}
@@ -10379,6 +10392,8 @@ snapshots:
 
   jose@5.6.3: {}
 
+  js-sha256@0.11.0: {}
+
   js-tokens@4.0.0: {}
 
   js-tokens@9.0.0: {}
@@ -10430,7 +10445,14 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
+  jwt-decode@4.0.0: {}
+
   kdbush@4.0.2: {}
+
+  keycloak-js@25.0.4:
+    dependencies:
+      js-sha256: 0.11.0
+      jwt-decode: 4.0.0
 
   keygrip@1.1.0:
     dependencies:
