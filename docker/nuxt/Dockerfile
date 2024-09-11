@@ -1,8 +1,8 @@
-FROM alpine:3.20
-LABEL ch.taywa.ch.image.authors="Yves Serrano <ys@taywa.ch>"
+FROM alpine:3.20.2
+LABEL ch.taywa.ch.image.authors="ys@taywa.ch"
 
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
 ENV PATH=$PATH:/opt/node_modules/bin
 
 # essential layer
@@ -15,7 +15,12 @@ RUN apk add --no-cache \
     rsync \
     bash \
     jq \
-    git
+    git \
+    libintl\
+    icu \
+    icu-data-full \
+    musl-locales \
+    musl-locales-lang
 WORKDIR /opt/nuxt3/
 RUN mkdir -p /opt/nuxt3 /opt/node_modules && ln -s /opt/node_modules /opt/nuxt3/node_modules \
     && cd /opt/nuxt3 \
@@ -23,10 +28,6 @@ RUN mkdir -p /opt/nuxt3 /opt/node_modules && ln -s /opt/node_modules /opt/nuxt3/
     && npm install -g pnpm@9.4.0 \
     && pnpm config set store-dir /opt/.pnpm-store
 
-COPY ./package/01/package.json ./package/01/pnpm-lock.yaml /opt/nuxt3/
-RUN pnpm install
-COPY ./package/02/package.json ./package/02/pnpm-lock.yaml /opt/nuxt3/
-RUN pnpm install
 COPY ./package/03/package.json ./package/03/pnpm-lock.yaml /opt/nuxt3/
 RUN pnpm install
 
