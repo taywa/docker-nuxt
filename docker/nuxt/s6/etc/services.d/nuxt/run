@@ -1,7 +1,0 @@
-#!/usr/bin/with-contenv sh
-
-cd /opt/nuxt
-if [ ! -d "/opt/nuxt/.nuxt/dist/" ]; then
-    nuxt build
-fi
-exec nuxt start

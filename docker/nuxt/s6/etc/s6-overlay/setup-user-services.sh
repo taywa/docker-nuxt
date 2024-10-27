@@ -1,12 +1,11 @@
-#!/usr/bin/with-contenv sh
+#!/command/with-contenv sh
 
 START_NUXT=${START_NUXT:-NO}
 if [ "$START_NUXT" = "YES" ]; then
-    rm /etc/services.d/nuxt/down
+    touch /etc/s6-overlay/s6-rc.d/user/contents.d/nuxt3
 fi
 
 START_ELASTICSEARCH=${START_ELASTICSEARCH:-NO}
 if [ "$START_ELASTICSEARCH" = "YES" ]; then
-    rm /etc/services.d/elasticsearch/down
+    touch /etc/s6-overlay/s6-rc.d/user/contents.d/elasticsearch
 fi
-

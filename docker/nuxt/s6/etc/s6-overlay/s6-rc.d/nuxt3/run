@@ -1,0 +1,7 @@
+#!/command/with-contenv sh
+
+cd /opt/nuxt3
+if [ ! -f "/opt/nuxt3/dist/server/index.mjs" ]; then
+    pnpm build
+fi
+exec node dist/server/index.mjs
