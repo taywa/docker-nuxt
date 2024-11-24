@@ -40,6 +40,12 @@ RUN mkdir -p /opt/nuxt3 /opt/node_modules && ln -s /opt/node_modules /opt/nuxt3/
 COPY ./package/05/package.json ./package/05/pnpm-lock.yaml /opt/nuxt3/
 RUN pnpm install
 
+COPY ./package/06/package.json ./package/06/pnpm-lock.yaml /opt/nuxt3/
+RUN pnpm install
+
+COPY ./package/07/package.json ./package/07/pnpm-lock.yaml /opt/nuxt3/
+RUN pnpm install
+
 COPY s6/etc/s6-overlay /etc/s6-overlay
 ENTRYPOINT ["/init"]
 EXPOSE 3000
