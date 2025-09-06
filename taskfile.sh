@@ -2,7 +2,7 @@
 # Enable shell strict mode
 set -euo pipefail
 
-NUXT_VERSION="3.13.2d"
+NUXT_VERSION="3.13.2e"
 
 build() {
 	cd docker

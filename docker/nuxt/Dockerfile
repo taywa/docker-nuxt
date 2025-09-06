@@ -48,7 +48,6 @@ RUN pnpm install
 
 
 RUN apk add --no-cache tzdata yq && ln -s /usr/share/zoneinfo/Europe/Zurich /etc/localtime
-RUN apk add --no-cache tzdata && ln -s /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 # empty cron file for root
 RUN truncate -s 0 /etc/crontabs/root
 
