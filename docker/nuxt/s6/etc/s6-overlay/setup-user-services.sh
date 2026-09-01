@@ -15,6 +15,11 @@ if [ "$START_STATIC_BUILDER" = "YES" ]; then
     touch /etc/s6-overlay/s6-rc.d/user/contents.d/static_builder
 fi
 
+START_CRON=${START_CRON:-NO}
+if [ "$START_CRON" = "YES" ]; then
+    touch /etc/s6-overlay/s6-rc.d/user/contents.d/cron
+fi
+
 if [ -f "/etc/ca/minica.pem" ] && [ ! -f "/usr/local/share/ca-certificates/minica.crt" ]; then
     echo "adding dev CA cert"
     ln -s /etc/ca/minica.pem /usr/local/share/ca-certificates/minica.crt

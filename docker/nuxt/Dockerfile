@@ -46,6 +46,13 @@ RUN pnpm install
 COPY ./package/07/package.json ./package/07/pnpm-lock.yaml /opt/nuxt3/
 RUN pnpm install
 
+COPY ./package/08/package.json ./package/08/pnpm-lock.yaml /opt/nuxt3/
+RUN pnpm install
+
+RUN apk add --no-cache tzdata yq redis && ln -s /usr/share/zoneinfo/Europe/Zurich /etc/localtime
+# empty cron file for root
+RUN truncate -s 0 /etc/crontabs/root
+
 COPY s6/etc/s6-overlay /etc/s6-overlay
 ENTRYPOINT ["/init"]
 EXPOSE 3000
