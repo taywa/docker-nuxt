@@ -37,16 +37,7 @@ RUN mkdir -p /opt/nuxt3 /opt/node_modules && ln -s /opt/node_modules /opt/nuxt3/
     && npm install -g pnpm@9.12.2 \
     && pnpm config set store-dir /opt/.pnpm-store
 
-COPY ./package/05/package.json ./package/05/pnpm-lock.yaml /opt/nuxt3/
-RUN pnpm install
-
-COPY ./package/06/package.json ./package/06/pnpm-lock.yaml /opt/nuxt3/
-RUN pnpm install
-
-COPY ./package/07/package.json ./package/07/pnpm-lock.yaml /opt/nuxt3/
-RUN pnpm install
-
-COPY ./package/08/package.json ./package/08/pnpm-lock.yaml /opt/nuxt3/
+COPY ./package/09/package.json ./package/09/pnpm-lock.yaml /opt/nuxt3/
 RUN pnpm install
 
 RUN apk add --no-cache tzdata yq redis && ln -s /usr/share/zoneinfo/Europe/Zurich /etc/localtime
